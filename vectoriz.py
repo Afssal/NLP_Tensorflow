@@ -3,7 +3,7 @@ import tensorflow as tf
 sentences = [
     'Hello how are you',
     'Good morning',
-    'Natural Language processing using Tensorflow'
+    'Natural Language processing using Tensorflow....'
 ]
 
 #initialize TextVectorization
@@ -27,3 +27,22 @@ print(vocabulary)
 vocabulary_ = vectorize_layer.get_vocabulary()
 
 print(vocabulary_)
+
+#iterate each token in vocabulary
+for index,token in enumerate(vocabulary):
+    print(index,token)
+
+#convert a text to sequence
+sequence = vectorize_layer('Hello Good morining')
+
+
+print(sequence)
+
+#convert multiple text to sequence
+sequence_ = vectorize_layer(sentences)
+
+print(sequence_)
+
+'''
+    from the above output we can see that padding is added automatically
+'''
